@@ -1,0 +1,30 @@
+package org.serratec.projeto01.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.serratec.projeto01.models.CalculadoraModel;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CalculadoraService {
+	
+	List<CalculadoraModel> listaCalculos = new ArrayList<CalculadoraModel>();
+	
+	public Integer soma(int operando1,int operando2) {		
+		return operando1 + operando2;
+	}
+	
+	public Integer subtracao(int operando1,int operando2) {		
+		return operando1 - operando2;
+	}
+	
+	public Integer multipçicacao(int operando1,int operando2) {		
+		return operando1 * operando2;
+	}
+	
+	public Integer divisao(int operando1,int operando2) {		
+		return operando1 / operando2;
+	}
+	
+}

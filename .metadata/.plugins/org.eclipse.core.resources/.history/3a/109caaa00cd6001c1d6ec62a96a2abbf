@@ -1,0 +1,11 @@
+package org.serratec.projeto01.services;
+
+import org.serratec.projeto01.models.CalculadoraModel;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CalculadoraService {
+	
+	List<CalculadoraModel> listaCalculos = new ArrayList<CalculadoraModel>();
+	
+}

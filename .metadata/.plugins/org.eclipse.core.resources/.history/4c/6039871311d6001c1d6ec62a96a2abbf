@@ -1,0 +1,24 @@
+package org.serratec.projeto01.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class CalculadoraService {
+		
+	public Integer somar(int operando1,int operando2) {		
+		return operando1 + operando2;
+	}
+	
+	public Integer subtrair(int operando1,int operando2) {		
+		return operando1 - operando2;
+	}
+	
+	public Integer multiplicar(int operando1,int operando2) {		
+		return operando1 * operando2;
+	}
+	
+	public Integer dividir(int operando1,int operando2) {		
+		return operando1 / operando2;
+	}
+	
+}

@@ -1,0 +1,8 @@
+package org.serratec.projeto01.controllers;
+
+public enum Operacao {
+	SOMA,
+	SUBTRACAO,
+	MULTIPLICACAO,
+	DIVISAO
+}

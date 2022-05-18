@@ -1,0 +1,8 @@
+package org.serratec.projeto01.models;
+
+public enum Operacao {
+	SOMA,
+	SUBTRACAO,
+	MULTIPLICACAO,
+	DIVISAO
+}

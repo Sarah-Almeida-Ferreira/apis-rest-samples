@@ -1,0 +1,33 @@
+package org.serratec.projeto01.models;
+
+public class CalculadoraModel {
+	
+	private int operando1;
+	private int operando2;
+	private int resposta;
+	private char operador;
+	
+	public CalculadoraModel(int operando1, char operador, int operando2, int resposta) {
+		this.operando1 = operando1;
+		this.operando2 = operando2;
+		this.resposta = resposta;
+		this.operador = operador;
+	}
+	
+	public int getOperando1() {
+		return operando1;
+	}
+	
+	public int getOperando2() {
+		return operando2;
+	}
+
+	public int getResposta() {
+		return resposta;
+	}
+
+	public char getOperador() {
+		return operador;
+	}	
+	
+}
