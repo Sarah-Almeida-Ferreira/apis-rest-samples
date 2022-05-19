@@ -11,7 +11,6 @@ public class Todo {
 	}
 	
 	public Todo(Integer id, String titulo, String descricao) {
-		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;
@@ -28,6 +27,13 @@ public class Todo {
 	public String getDescricao() {
 		return descricao;
 	}
-		
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}	
 
 }
