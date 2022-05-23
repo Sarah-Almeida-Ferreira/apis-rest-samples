@@ -3,7 +3,6 @@ package org.serratec.projeto03.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.serratec.projeto03.dtos.OperacaoDto;
 import org.serratec.projeto03.interfaces.IOperacaoRepository;
 import org.serratec.projeto03.models.OperacaoModel;
 import org.springframework.beans.factory.annotation.Autowired;

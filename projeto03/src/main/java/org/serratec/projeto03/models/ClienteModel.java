@@ -26,18 +26,17 @@ public class ClienteModel {
 	@Column(name="cliente_cpf", unique=true)
 	private String cpf;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
-	@Column(name = "cliente_contas_bancarias")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "titular")
+	@Column(name = "conta_bancaria_id")
 	private List<ContaBancariaModel> contasBancarias;
 	
 	public ClienteModel() {
 	}
 
-	public ClienteModel(Long id, String nome, String cpf, List<ContaBancariaModel> contasBancarias) {
+	public ClienteModel(Long id, String nome, String cpf) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
-		this.contasBancarias = contasBancarias;
 	}
 
 	public String getNome() {

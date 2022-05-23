@@ -20,14 +20,11 @@ public class ContaBancariaModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="conta_bancaria_id")
-	private Long idCliente;
-	
-	@Column(name = "numero_conta", unique=true)
-	private String numConta;
+	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "cliente_id")
-	private ClienteModel cliente;
+	@JoinColumn(name = "titular_id")
+	private ClienteModel titular;
 	
 	@Column(name = "saldo_conta")
 	private double saldo;
@@ -39,34 +36,34 @@ public class ContaBancariaModel {
 	public ContaBancariaModel() {
 	}
 	
-	public ContaBancariaModel(Long id, String numConta, String cpfTitular, double saldo) {
-		this.idCliente = id;
-		this.numConta = numConta;
+	public ContaBancariaModel(Long id, ClienteModel titular, double saldo) {
+		this.id = id;
+		this.titular = titular;
 		this.saldo = saldo;
 	}
 
 	public ClienteModel getTitular() {
-		return cliente;
+		return titular;
 	}
 
 	public double getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
-
 	public Long getId() {
-		return idCliente;
-	}
-
-	public String getNumConta() {
-		return numConta;
+		return id;
 	}
 
 	public List<OperacaoModel> getListaOperacoes() {
 		return operacoes;
+	}
+	
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	public void setTitular(ClienteModel titular) {
+		this.titular = titular;
 	}
 	
 }
