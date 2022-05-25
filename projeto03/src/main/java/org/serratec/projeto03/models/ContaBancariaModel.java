@@ -32,38 +32,49 @@ public class ContaBancariaModel {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "contaBancaria")
 	@Column(name = "operacoes_da_conta")
 	private List<OperacaoModel> operacoes;
-	
+
 	public ContaBancariaModel() {
+		
 	}
 	
-	public ContaBancariaModel(Long id, ClienteModel titular, double saldo) {
+	public ContaBancariaModel(Long id, ClienteModel titular, double saldo, List<OperacaoModel> operacoes) {
 		this.id = id;
 		this.titular = titular;
 		this.saldo = saldo;
-	}
-
-	public ClienteModel getTitular() {
-		return titular;
-	}
-
-	public double getSaldo() {
-		return saldo;
+		this.operacoes = operacoes;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public List<OperacaoModel> getListaOperacoes() {
-		return operacoes;
+	public void setId(Long id) {
+		this.id = id;
 	}
-	
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
+
+	public ClienteModel getTitular() {
+		return titular;
 	}
 
 	public void setTitular(ClienteModel titular) {
 		this.titular = titular;
 	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	public List<OperacaoModel> getOperacoes() {
+		return operacoes;
+	}
+
+	public void setOperacoes(List<OperacaoModel> operacoes) {
+		this.operacoes = operacoes;
+	}
+	
 	
 }

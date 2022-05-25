@@ -29,14 +29,22 @@ public class ClienteModel {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "titular")
 	@Column(name = "conta_bancaria_id")
 	private List<ContaBancariaModel> contasBancarias;
-	
-	public ClienteModel() {
-	}
 
-	public ClienteModel(Long id, String nome, String cpf) {
-		this.id = id;
+	public ClienteModel() {
+		
+	}
+	
+	public ClienteModel(String nome, String cpf) {
 		this.nome = nome;
 		this.cpf = cpf;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -62,9 +70,6 @@ public class ClienteModel {
 	public void setContasBancarias(List<ContaBancariaModel> contasBancarias) {
 		this.contasBancarias = contasBancarias;
 	}
-
-	public Long getId() {
-		return id;
-	}
+	
 	
 }

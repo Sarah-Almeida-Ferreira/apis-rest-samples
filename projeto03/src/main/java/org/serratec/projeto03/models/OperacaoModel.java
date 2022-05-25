@@ -30,43 +30,4 @@ public class OperacaoModel {
 	@JoinColumn(name = "conta_bancaria_id")
 	private ContaBancariaModel contaBancaria;
 
-	public OperacaoModel() {;
-	}
-
-	public OperacaoModel(Long id, TipoOperacao tipo, Double valor, ContaBancariaModel contaBancaria) {
-		this.idOperacao = id;
-		this.tipoOperacao = tipo;
-		this.valorOperacao = valor;
-		this.contaBancaria = contaBancaria;
-	}
-
-	public TipoOperacao getTipo() {
-		return tipoOperacao;
-	}
-
-	public void setTipo(TipoOperacao tipo) {
-		this.tipoOperacao = tipo;
-	}
-
-	public Double getValor() {
-		return valorOperacao;
-	}
-
-	public void setValor(Double valor) {
-		this.valorOperacao = valor;
-	}
-
-	public ContaBancariaModel getContaBancaria() {
-		return contaBancaria;
-	}
-
-	public void setContaBancaria(ContaBancariaModel contaBancaria) {
-		this.contaBancaria = contaBancaria;
-	}
-
-	public Long getId() {
-		return idOperacao;
-	}
-	
-
 }

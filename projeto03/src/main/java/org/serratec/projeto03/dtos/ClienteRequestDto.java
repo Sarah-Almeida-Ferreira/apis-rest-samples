@@ -3,11 +3,10 @@ package org.serratec.projeto03.dtos;
 public class ClienteRequestDto {
 	
 	private String nome;
-	private String cpf; 
+	private String cpf;
 	
 	public ClienteRequestDto() {
 	}
-	
 
 	public ClienteRequestDto(String nome, String cpf) {
 		this.nome = nome;
@@ -29,5 +28,5 @@ public class ClienteRequestDto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 }
