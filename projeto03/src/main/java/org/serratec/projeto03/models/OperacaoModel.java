@@ -1,5 +1,7 @@
 package org.serratec.projeto03.models;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +25,9 @@ public class OperacaoModel {
 	@Column(name = "tipo_operacao")
 	private TipoOperacao tipoOperacao;
 	
+	@Column(name = "data_operacao") 
+	private LocalDate dataOperacao;
+	
 	@Column(name = "valor_operacao")
 	private Double valorOperacao;
 	
@@ -30,30 +35,30 @@ public class OperacaoModel {
 	@JoinColumn(name = "conta_bancaria_id")
 	private ContaBancariaModel contaBancaria;
 
-	public OperacaoModel() {;
+	public OperacaoModel() {
+	
 	}
-
-	public OperacaoModel(Long id, TipoOperacao tipo, Double valor, ContaBancariaModel contaBancaria) {
-		this.idOperacao = id;
-		this.tipoOperacao = tipo;
-		this.valorOperacao = valor;
+	
+	public OperacaoModel(TipoOperacao tipoOperacao, Double valorOperacao, ContaBancariaModel contaBancaria) {
+		this.tipoOperacao = tipoOperacao;
+		this.valorOperacao = valorOperacao;
 		this.contaBancaria = contaBancaria;
 	}
 
-	public TipoOperacao getTipo() {
+	public TipoOperacao getTipoOperacao() {
 		return tipoOperacao;
 	}
 
-	public void setTipo(TipoOperacao tipo) {
-		this.tipoOperacao = tipo;
+	public void setTipoOperacao(TipoOperacao tipoOperacao) {
+		this.tipoOperacao = tipoOperacao;
 	}
 
-	public Double getValor() {
+	public Double getValorOperacao() {
 		return valorOperacao;
 	}
 
-	public void setValor(Double valor) {
-		this.valorOperacao = valor;
+	public void setValorOperacao(Double valorOperacao) {
+		this.valorOperacao = valorOperacao;
 	}
 
 	public ContaBancariaModel getContaBancaria() {
@@ -64,9 +69,18 @@ public class OperacaoModel {
 		this.contaBancaria = contaBancaria;
 	}
 
-	public Long getId() {
+	public Long getIdOperacao() {
 		return idOperacao;
 	}
-	
 
+	public LocalDate getDataOperacao() {
+		return dataOperacao;
+	}
+
+	public void setDataOperacao(LocalDate dataOperacao) {
+		this.dataOperacao = dataOperacao;
+	}	
+	
+	
+	
 }

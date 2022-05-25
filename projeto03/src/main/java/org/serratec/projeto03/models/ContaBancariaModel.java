@@ -20,53 +20,61 @@ public class ContaBancariaModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="conta_bancaria_id")
-	private Long idCliente;
-	
-	@Column(name = "numero_conta", unique=true)
-	private String numConta;
+	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "cliente_id")
-	private ClienteModel cliente;
+	@JoinColumn(name = "titular_id")
+	private ClienteModel titular;
 	
 	@Column(name = "saldo_conta")
-	private double saldo;
+	private Double saldo;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "contaBancaria")
 	@Column(name = "operacoes_da_conta")
 	private List<OperacaoModel> operacoes;
-	
+
 	public ContaBancariaModel() {
+		
 	}
 	
-	public ContaBancariaModel(Long id, String numConta, String cpfTitular, double saldo) {
-		this.idCliente = id;
-		this.numConta = numConta;
+	public ContaBancariaModel(Long id, ClienteModel titular, double saldo, List<OperacaoModel> operacoes) {
+		this.id = id;
+		this.titular = titular;
 		this.saldo = saldo;
-	}
-
-	public ClienteModel getTitular() {
-		return cliente;
-	}
-
-	public double getSaldo() {
-		return saldo;
-	}
-
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
+		this.operacoes = operacoes;
 	}
 
 	public Long getId() {
-		return idCliente;
+		return id;
 	}
 
-	public String getNumConta() {
-		return numConta;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public List<OperacaoModel> getListaOperacoes() {
+	public ClienteModel getTitular() {
+		return titular;
+	}
+
+	public void setTitular(ClienteModel titular) {
+		this.titular = titular;
+	}
+
+	public Double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(Double saldo) {
+		this.saldo = saldo;
+	}
+
+	public List<OperacaoModel> getOperacoes() {
 		return operacoes;
 	}
+
+	public void setOperacoes(List<OperacaoModel> operacoes) {
+		this.operacoes = operacoes;
+	}
+	
 	
 }
