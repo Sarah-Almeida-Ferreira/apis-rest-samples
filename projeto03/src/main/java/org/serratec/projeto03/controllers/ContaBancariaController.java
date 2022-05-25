@@ -2,18 +2,22 @@ package org.serratec.projeto03.controllers;
 
 import java.util.List;
 
-import org.serratec.projeto03.dtos.ClienteRequestDto;
 import org.serratec.projeto03.dtos.ContaBancariaRequestDto;
 import org.serratec.projeto03.dtos.ContaBancariaResponseDto;
+import org.serratec.projeto03.dtos.OperacaoResponseDto;
 import org.serratec.projeto03.exceptions.ItemNotFoundException;
 import org.serratec.projeto03.interfaces.IContaBancariaController;
 import org.serratec.projeto03.mappers.ContaBancariaMapper;
+import org.serratec.projeto03.mappers.OperacaoMapper;
 import org.serratec.projeto03.services.ContaBancariaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +28,9 @@ public class ContaBancariaController implements IContaBancariaController {
 	
 	@Autowired
 	ContaBancariaMapper mapper;
+	
+	@Autowired
+	OperacaoMapper operacaoMapper;
 	
 	@Autowired
 	ContaBancariaService service;	
@@ -47,23 +54,40 @@ public class ContaBancariaController implements IContaBancariaController {
 	}
 
 	@Override
-	public ResponseEntity<ContaBancariaRequestDto> getOne(Long id) throws ItemNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+	@GetMapping("/{id}")
+	public ResponseEntity<ContaBancariaRequestDto> getOne(@PathVariable Long id) throws ItemNotFoundException {
+		
+		ContaBancariaRequestDto contaBancaria = mapper.fromModelToRequestDto(service.getOne(id));
+		
+		return ResponseEntity.ok(contaBancaria);
 	}
 
 	@Override
-	public ResponseEntity<ContaBancariaResponseDto> update(Long id, ClienteRequestDto cliente)
+	@PutMapping("/{id}")
+	public ResponseEntity<String> update(@PathVariable Long id, @RequestBody ContaBancariaRequestDto contaBancariaAtualizada)
 			throws ItemNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		service.update(id, mapper.fromRequestDtoToModel(contaBancariaAtualizada));
+		
+		return ResponseEntity.ok("Conta atualizada com sucesso");
 	}
 
 	@Override
-	public ResponseEntity<String> delete(Long id) throws ItemNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> delete(@PathVariable Long id) throws ItemNotFoundException {
 	
+		service.delete(id);
+		
+		return ResponseEntity.ok("Conta excluída com sucesso");
+	}
+
+	@Override
+	@GetMapping("/operacoes/{id}")
+	public ResponseEntity<List<OperacaoResponseDto>> getOperacoesByContaId(Long id) throws ItemNotFoundException {
+		
+		List<OperacaoResponseDto> operacoes = operacaoMapper.fromModelListToDtoList(service.getOperacoesByContaId(id));
+		
+		return ResponseEntity.ok(operacoes);
+	}
 	
 }

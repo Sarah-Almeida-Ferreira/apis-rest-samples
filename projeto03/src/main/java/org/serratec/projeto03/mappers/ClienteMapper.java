@@ -17,7 +17,7 @@ public class ClienteMapper {
 	@Autowired
 	IClienteRepository clienteRepository;
 	
-	public ClienteModel fromRequestDtotoModel(ClienteRequestDto clienteDto) {
+	public ClienteModel fromRequestDtoToModel(ClienteRequestDto clienteDto) {
 		
 		ClienteModel clienteModel = new ClienteModel();
 		

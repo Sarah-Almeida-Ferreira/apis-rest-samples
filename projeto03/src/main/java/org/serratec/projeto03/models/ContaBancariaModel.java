@@ -27,7 +27,7 @@ public class ContaBancariaModel {
 	private ClienteModel titular;
 	
 	@Column(name = "saldo_conta")
-	private double saldo;
+	private Double saldo;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "contaBancaria")
 	@Column(name = "operacoes_da_conta")
@@ -60,11 +60,11 @@ public class ContaBancariaModel {
 		this.titular = titular;
 	}
 
-	public double getSaldo() {
+	public Double getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(double saldo) {
+	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	}
 

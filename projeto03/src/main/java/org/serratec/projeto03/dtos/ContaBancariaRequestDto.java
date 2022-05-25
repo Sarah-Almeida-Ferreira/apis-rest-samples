@@ -3,7 +3,7 @@ package org.serratec.projeto03.dtos;
 public class ContaBancariaRequestDto {
 	
 	private Long titularId;
-	private double saldo;
+	private Double saldo;
 	
 	
 	public ContaBancariaRequestDto() {
@@ -23,11 +23,11 @@ public class ContaBancariaRequestDto {
 		this.titularId = titularId;
 	}
 
-	public double getSaldo() {
+	public Double getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(double saldo) {
+	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	}	
 	

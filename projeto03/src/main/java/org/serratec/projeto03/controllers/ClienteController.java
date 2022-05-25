@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.serratec.projeto03.dtos.ClienteRequestDto;
 import org.serratec.projeto03.dtos.ClienteResponseDto;
+import org.serratec.projeto03.exceptions.ItemAlreadyExistsException;
 import org.serratec.projeto03.exceptions.ItemNotFoundException;
 import org.serratec.projeto03.interfaces.IClienteController;
 import org.serratec.projeto03.mappers.ClienteMapper;
@@ -34,9 +35,9 @@ public class ClienteController implements IClienteController {
 
 	@Override
 	@PostMapping
-	public ResponseEntity<String> create(@RequestBody ClienteRequestDto cliente) {
+	public ResponseEntity<String> create(@RequestBody ClienteRequestDto cliente) throws ItemAlreadyExistsException {
 		
-		ClienteModel clienteCriado = mapper.fromRequestDtotoModel(cliente);
+		ClienteModel clienteCriado = mapper.fromRequestDtoToModel(cliente);
 		
 		service.create(clienteCriado);
 		
@@ -68,9 +69,9 @@ public class ClienteController implements IClienteController {
 
 	@Override
 	@PutMapping("/{id}")
-	public ResponseEntity<ClienteResponseDto> update(@PathVariable Long id, @RequestBody ClienteRequestDto clienteDto) throws ItemNotFoundException {
+	public ResponseEntity<ClienteResponseDto> update(@PathVariable Long id, @RequestBody ClienteRequestDto clienteDto) throws ItemNotFoundException, ItemAlreadyExistsException {
 		
-		ClienteModel cliente = mapper.fromRequestDtotoModel(clienteDto);
+		ClienteModel cliente = mapper.fromRequestDtoToModel(clienteDto);
 		
 		cliente = service.update(id, cliente);
 		
