@@ -2,7 +2,6 @@ package org.serratec.projeto03.models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,9 +28,9 @@ public class ContaBancariaModel {
 	@Column(name = "saldo_conta")
 	private Double saldo;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "contaBancaria")
-	@Column(name = "operacoes_da_conta")
-	private List<OperacaoModel> operacoes;
+	@OneToMany(mappedBy = "contaBancaria")
+	@Column(name = "conta_lista_cartao")
+	private List<CartaoModel> cartoes;
 
 	public ContaBancariaModel() {
 		
@@ -41,7 +40,6 @@ public class ContaBancariaModel {
 		this.id = id;
 		this.titular = titular;
 		this.saldo = saldo;
-		this.operacoes = operacoes;
 	}
 
 	public Long getId() {
@@ -68,12 +66,12 @@ public class ContaBancariaModel {
 		this.saldo = saldo;
 	}
 
-	public List<OperacaoModel> getOperacoes() {
-		return operacoes;
+	public List<CartaoModel> getCartoes() {
+		return cartoes;
 	}
 
-	public void setOperacoes(List<OperacaoModel> operacoes) {
-		this.operacoes = operacoes;
+	public void setCartoes(List<CartaoModel> cartoes) {
+		this.cartoes = cartoes;
 	}
 	
 	

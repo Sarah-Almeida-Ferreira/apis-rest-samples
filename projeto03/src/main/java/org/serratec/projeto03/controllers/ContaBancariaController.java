@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.serratec.projeto03.dtos.ContaBancariaRequestDto;
 import org.serratec.projeto03.dtos.ContaBancariaResponseDto;
-import org.serratec.projeto03.dtos.OperacaoResponseDto;
 import org.serratec.projeto03.exceptions.ItemNotFoundException;
 import org.serratec.projeto03.interfaces.IContaBancariaController;
 import org.serratec.projeto03.mappers.ContaBancariaMapper;
@@ -79,15 +78,6 @@ public class ContaBancariaController implements IContaBancariaController {
 		service.delete(id);
 		
 		return ResponseEntity.ok("Conta excluída com sucesso");
-	}
-
-	@Override
-	@GetMapping("/operacoes/{id}")
-	public ResponseEntity<List<OperacaoResponseDto>> getOperacoesByContaId(Long id) throws ItemNotFoundException {
-		
-		List<OperacaoResponseDto> operacoes = operacaoMapper.fromModelListToDtoList(service.getOperacoesByContaId(id));
-		
-		return ResponseEntity.ok(operacoes);
 	}
 	
 }

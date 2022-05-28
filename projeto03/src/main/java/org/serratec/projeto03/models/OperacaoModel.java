@@ -32,17 +32,17 @@ public class OperacaoModel {
 	private Double valorOperacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "conta_bancaria_id")
-	private ContaBancariaModel contaBancaria;
+	@JoinColumn(name = "operacao_cartao_id")
+	private CartaoModel cartao;
 
 	public OperacaoModel() {
 	
 	}
 	
-	public OperacaoModel(TipoOperacao tipoOperacao, Double valorOperacao, ContaBancariaModel contaBancaria) {
+	public OperacaoModel(TipoOperacao tipoOperacao, Double valorOperacao, CartaoModel cartao) {
 		this.tipoOperacao = tipoOperacao;
 		this.valorOperacao = valorOperacao;
-		this.contaBancaria = contaBancaria;
+		this.cartao = cartao;
 	}
 
 	public TipoOperacao getTipoOperacao() {
@@ -61,12 +61,12 @@ public class OperacaoModel {
 		this.valorOperacao = valorOperacao;
 	}
 
-	public ContaBancariaModel getContaBancaria() {
-		return contaBancaria;
+	public CartaoModel getCartao() {
+		return cartao;
 	}
 
-	public void setContaBancaria(ContaBancariaModel contaBancaria) {
-		this.contaBancaria = contaBancaria;
+	public void setCartao(CartaoModel cartao) {
+		this.cartao = cartao;
 	}
 
 	public Long getIdOperacao() {

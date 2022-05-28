@@ -5,8 +5,8 @@ import java.util.Optional;
 
 import org.serratec.projeto03.exceptions.ItemNotFoundException;
 import org.serratec.projeto03.interfaces.IContaBancariaRepository;
+import org.serratec.projeto03.models.CartaoModel;
 import org.serratec.projeto03.models.ContaBancariaModel;
-import org.serratec.projeto03.models.OperacaoModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -68,11 +68,11 @@ public class ContaBancariaService {
 		
 	}
 
-	public List<OperacaoModel> getOperacoesByContaId(Long id) throws ItemNotFoundException {
+	public List<CartaoModel> getCartoesByContaId(Long id) throws ItemNotFoundException {
 		
-		List<OperacaoModel> operacoes = getOne(id).getOperacoes();
-		
-		return operacoes;
+		List<CartaoModel> cartoes = getOne(id).getCartoes();
+			
+		return cartoes;
 		
 	}
 

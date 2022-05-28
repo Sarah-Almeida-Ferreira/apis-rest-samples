@@ -3,15 +3,15 @@ package org.serratec.projeto03.dtos;
 public class OperacaoRequestDto {
 	
 	private Double valorOperacao;
-	private Long contaBancariaId;
+	private Long cartaoId;
 
 	public OperacaoRequestDto() {
 	
 	}
 	
-	public OperacaoRequestDto(Double valorOperacao, Long contaBancariaId) {
+	public OperacaoRequestDto(Double valorOperacao, Long cartaoId) {
 		this.valorOperacao = valorOperacao;
-		this.contaBancariaId = contaBancariaId;
+		this.cartaoId = cartaoId;
 	}
 
 	public Double getValorOperacao() {
@@ -22,12 +22,12 @@ public class OperacaoRequestDto {
 		this.valorOperacao = valorOperacao;
 	}
 
-	public Long getContaBancariaId() {
-		return contaBancariaId;
+	public Long getCartaoId() {
+		return cartaoId;
 	}
 
-	public void setContaBancariaId(Long contaBancariaId) {
-		this.contaBancariaId = contaBancariaId;
+	public void setCartaoId(Long cartaoId) {
+		this.cartaoId = cartaoId;
 	}
 
 }

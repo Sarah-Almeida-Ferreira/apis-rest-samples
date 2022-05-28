@@ -6,9 +6,9 @@ import java.util.List;
 import org.serratec.projeto03.dtos.OperacaoRequestDto;
 import org.serratec.projeto03.dtos.OperacaoResponseDto;
 import org.serratec.projeto03.exceptions.ItemNotFoundException;
-import org.serratec.projeto03.models.ContaBancariaModel;
+import org.serratec.projeto03.models.CartaoModel;
 import org.serratec.projeto03.models.OperacaoModel;
-import org.serratec.projeto03.services.ContaBancariaService;
+import org.serratec.projeto03.services.CartaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,14 +16,14 @@ import org.springframework.stereotype.Component;
 public class OperacaoMapper {
 	
 	@Autowired
-	ContaBancariaService contaBancariaService;
+	CartaoService cartaoService;
 	
 	public OperacaoModel fomRequestDtoToModel(OperacaoRequestDto dto) throws ItemNotFoundException {
 		
 		OperacaoModel model = new OperacaoModel();
-		ContaBancariaModel conta = contaBancariaService.getOne(dto.getContaBancariaId());
+		CartaoModel cartao = cartaoService.getOne(dto.getCartaoId());
 		
-		model.setContaBancaria(conta);
+		model.setCartao(cartao);
 		model.setValorOperacao(dto.getValorOperacao());
 		
 		return model;
@@ -34,7 +34,7 @@ public class OperacaoMapper {
 		OperacaoResponseDto dto = new OperacaoResponseDto();
 		
 		dto.setIdOperacao(model.getIdOperacao());
-		dto.setContaBancariaId(model.getContaBancaria().getId());
+		dto.setContaBancariaId(model.getCartao().getContaBancaria().getId());
 		dto.setTipoOperacao(model.getTipoOperacao());
 		dto.setValorOperacao(model.getValorOperacao());
 		dto.setDataOperacao(model.getDataOperacao());

@@ -24,7 +24,7 @@ public class OperacaoService {
 
 	public void createDebito(OperacaoModel operacao) throws InsufficientFundsException, ItemNotFoundException {
 		
-		ContaBancariaModel conta = operacao.getContaBancaria();
+		ContaBancariaModel conta = operacao.getCartao().getContaBancaria();
 		Double valorOperacao = operacao.getValorOperacao();
 
 		operacao.setTipoOperacao(TipoOperacao.DEBITO);
@@ -42,7 +42,7 @@ public class OperacaoService {
 	
 	public void createCredito(OperacaoModel operacao) throws ItemNotFoundException {
 		
-		ContaBancariaModel conta = operacao.getContaBancaria();
+		ContaBancariaModel conta = operacao.getCartao().getContaBancaria();
 		Double valorOperacao = operacao.getValorOperacao();
 		
 		operacao.setTipoOperacao(TipoOperacao.CREDITO);
